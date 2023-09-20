@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    tools:context=".MainActivity">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="match_parent">
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="match_parent"
+            android:layout_height="166dp"
+            android:scaleType="centerCrop"
+            android:layout_marginStart="0dp"
+            android:layout_marginEnd="0dp"
+            app:srcCompat="@drawable/bg_perusahaan" />
+        <ImageView
+            android:id="@+id/imageView7"
+            android:layout_gravity="center"
+            android:layout_width="367dp"
+            android:layout_height="133dp"
+            app:srcCompat="@drawable/lnp" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:padding="10dp"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Tentang kami"
+                    android:layout_marginBottom="10dp"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    android:textColor="#0323F4" />
+
+                <TextView
+                    android:id="@+id/textView6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Dalam era globalisasi, kebutuhan akan barang maupun komoditi tidak hanya terjadi antara kota-kota besar saja. Kemudahan dalam berkomunikasi maupun kemajuan tekhnologi membuat sebagian besar masyarakat khususnya masyarakat kota-kota kecil maupun pedesaan sudah bisa melakukan pembelian langsung hanya dengan alat komunikasi atau melalui online. Dengan menggunakan Moda Transportasi Kereta Api, mempunyai cabang di 100 Kota yang tersebar di seluruh Pulau Jawa s/d Bali, PT Lintas Nusantara Perdana dengan LAYANAN UNGGULAN 1 HARI SAMPAI, siap memberikan layanan maksimal demi tercapainya kepuasan terhadap Pelanggan."
+                    android:textColor="@color/black"
+                    android:layout_marginBottom="20dp"
+                    android:textSize="10sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Visi"
+                    android:layout_marginBottom="10dp"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="#0323F4" />
+
+                <TextView
+                    android:id="@+id/textView5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Layanan maksimal demi kepuasan Pelanggan. Jaminan sosial terhadap lingkungan eskternal maupun internal perusahaan. "
+                    android:textColor="@color/black"
+                    android:layout_marginBottom="20dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Misi"
+                    android:layout_marginBottom="10dp"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="#0323F4" />
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Menjadi perusahaan Ekspedisi Handa dan Terpercaya. Tersebar di Kota-Kota besar maupun kecil di seluruh pelosok Nusantara. Memberikan kontribusi untuk kemajuan Bangsa Indonesia."
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+        </ScrollView>
+
+
+        <ImageView
+            android:id="@+id/imageView8"
+            android:layout_width="wrap_content"
+            android:scaleType="centerCrop"
+            android:layout_height="80dp"
+            app:srcCompat="@drawable/bawah_perusahaan" />
+    </LinearLayout>
+
+
+</RelativeLayout>
