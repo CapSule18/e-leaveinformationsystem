@@ -1,6 +1,19 @@
 package com.example.projectcuti.model;
 
 public class Izin {
+    String id, nama, keterangan, status, jenis, tgl_mulai, tgl_akhir, nik;
+
+    public Izin(String id, String nama, String keterangan, String status, String jenis, String tgl_mulai, String tgl_akhir, String nik) {
+        this.id = id;
+        this.nama = nama;
+        this.keterangan = keterangan;
+        this.status = status;
+        this.jenis = jenis;
+        this.tgl_mulai = tgl_mulai;
+        this.tgl_akhir = tgl_akhir;
+        this.nik = nik;
+    }
+
     public String getId() {
         return id;
     }
@@ -64,18 +77,4 @@ public class Izin {
     public void setNik(String nik) {
         this.nik = nik;
     }
-
-    public Izin(String id, String nama, String keterangan, String status, String jenis, String tgl_mulai, String tgl_akhir, String nik) {
-        this.id = id;
-        this.nama = nama;
-        this.keterangan = keterangan;
-        this.status = status;
-        this.jenis = jenis;
-        this.tgl_mulai = tgl_mulai;
-        this.tgl_akhir = tgl_akhir;
-        this.nik = nik;
-    }
-
-    String id, nama, keterangan, status, jenis, tgl_mulai, tgl_akhir, nik;
-
 }
