@@ -1,13 +1,18 @@
 package com.example.projectcuti.login.data;
 
+import static android.content.Context.MODE_PRIVATE;
+
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.example.projectcuti.interfaces.LoginInterface;
 import com.example.projectcuti.login.data.model.BearerToken;
 import com.example.projectcuti.login.data.model.LoggedInUser;
 import com.example.projectcuti.model.UserCredentials;
+import com.example.projectcuti.support.Result;
 import com.example.projectcuti.support.RetrofitClient;
+import com.google.gson.Gson;
 
 import java.io.IOException;
 import java.util.concurrent.ExecutorService;
@@ -15,7 +20,6 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
 import retrofit2.Call;
-import retrofit2.Callback;
 import retrofit2.Response;
 
 /**
@@ -25,12 +29,7 @@ public class LoginDataSource {
 
     LoginInterface loginService = RetrofitClient.getLoginInterface();
 
-    public Result<LoggedInUser> login(String username, String password) {
-
-        Log.i("LOGIN", "Attemp to login");
-        Log.i("LOGIN", username);
-        Log.i("LOGIN", password);
-
+    public Result<LoggedInUser> login(String username, String password, final Context context) {
         try {
             Call<BearerToken> login = loginService.loginUser(new UserCredentials(username, password));
 
@@ -44,7 +43,10 @@ public class LoginDataSource {
 
             BearerToken token = loginAsync.get();
 
-            Call<LoggedInUser> profile = loginService.profile("Bearer " + token.getToken());
+            // store token
+            this.storeToken(token, context);
+
+            Call<LoggedInUser> profile = loginService.profile(token.getAuthorizationHeader());
 
             // Get user profile
             Future<LoggedInUser> profileAsync = executorService.submit(() -> {
@@ -63,5 +65,16 @@ public class LoginDataSource {
 
     public void logout() {
         // TODO: revoke authentication
+    }
+
+    private void storeToken(BearerToken token, Context context) {
+        SharedPreferences tokenSharedPreferences = context.getSharedPreferences("token", MODE_PRIVATE);
+        SharedPreferences.Editor tokenEditor = tokenSharedPreferences.edit();
+
+        Gson gson = new Gson();
+        String json = gson.toJson(token);
+
+        tokenEditor.putString("token", json);
+        tokenEditor.apply();
     }
 }

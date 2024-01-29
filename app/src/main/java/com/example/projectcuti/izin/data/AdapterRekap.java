@@ -1,22 +1,22 @@
-package com.example.projectcuti;
+package com.example.projectcuti.izin.data;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.projectcuti.model.Izin;
+import com.example.projectcuti.R;
+import com.example.projectcuti.izin.data.model.Izin;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class AdapterRekap extends RecyclerView.Adapter<AdapterRekap.ViewModel> {
-    ArrayList<Izin> list;
+    List<Izin> list;
 
-    public AdapterRekap(ArrayList<Izin> list) {
+    public AdapterRekap(List<Izin> list) {
         this.list = list;
     }
 
@@ -33,15 +33,20 @@ public class AdapterRekap extends RecyclerView.Adapter<AdapterRekap.ViewModel> {
     public void onBindViewHolder(@NonNull AdapterRekap.ViewModel holder, int position) {
         Izin izin = list.get(position);
 
-        holder.txt_status.setText(izin.getStatus());
-        if (izin.getStatus().equals("pending")) {
+        String number = "Nomor Izin: " + izin.getId();
+
+        if (izin.getStatus().equals("Pending")) {
             holder.txt_status.setTextColor(holder.txt_status.getResources().getColor(R.color.yellow));
         }
-        holder.txt_nik.setText(izin.getNik());
-        holder.txt_nama.setText(izin.getNama());
-        holder.txt_tgl.setText(izin.getTgl_mulai());
-        holder.txt_selesai.setText(izin.getTgl_akhir());
-        holder.txt_jenis.setText(izin.getJenis());
+        if (izin.getStatus().equals("Ditolak")) {
+            holder.txt_status.setTextColor(holder.txt_status.getResources().getColor(R.color.black));
+        }
+        holder.txt_status.setText(izin.getStatus());
+        holder.txt_nik.setText(number);
+        holder.txt_tgl.setText(izin.getSince());
+        holder.txt_selesai.setText(izin.getUntil());
+        holder.txt_jenis.setText(izin.getType());
+        holder.txt_keterangan.setText(izin.getKeterangan());
     }
 
     @Override
@@ -50,13 +55,13 @@ public class AdapterRekap extends RecyclerView.Adapter<AdapterRekap.ViewModel> {
     }
 
     public static class ViewModel extends RecyclerView.ViewHolder {
-        TextView txt_status, txt_nik, txt_nama, txt_tgl, txt_selesai, txt_jenis;
+        TextView txt_status, txt_nik, txt_tgl, txt_selesai, txt_jenis, txt_keterangan;
 
         public ViewModel(@NonNull View itemView) {
             super(itemView);
+            txt_keterangan = itemView.findViewById(R.id.txt_keterangan);
             txt_status = itemView.findViewById(R.id.txt_status);
             txt_nik = itemView.findViewById(R.id.txt_nik);
-            txt_nama = itemView.findViewById(R.id.txt_nama);
             txt_tgl = itemView.findViewById(R.id.txt_tgl);
             txt_selesai = itemView.findViewById(R.id.txt_selesai);
             txt_jenis = itemView.findViewById(R.id.txt_jenis);

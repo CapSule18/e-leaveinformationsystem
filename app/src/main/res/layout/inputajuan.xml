@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
@@ -30,6 +29,7 @@
                     android:layout_centerInParent="true"
                     android:text="Ajukan Permohonan"
                     android:textColor="@color/black"
+                    android:id="@+id/pageTitle"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
@@ -105,55 +105,18 @@
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/txt_keterangan"
-                            android:paddingHorizontal="8dp"
-                            android:layout_marginTop="10dp"
-                            android:background="@drawable/spinner_background"
                             android:layout_width="match_parent"
                             android:layout_height="50dp"
+                            android:layout_marginTop="10dp"
+                            android:background="@drawable/spinner_background"
                             android:backgroundTint="#FF72B9FD"
                             android:hint="Masukkan Keterangan"
                             android:imeOptions="actionNext"
                             android:inputType="text"
                             android:maxLines="1"
+                            android:paddingHorizontal="8dp"
                             android:textColor="@color/black"
                             android:textSize="16sp" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginTop="20dp"
-                        android:orientation="vertical"
-                        android:layout_marginEnd="20dp">
-
-                        <TextView
-                            android:id="@+id/tvKelas"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Cabang Kantor"
-                            android:textColor="@color/black"
-                            android:textSize="14sp" />
-
-                        <EditText
-                            android:id="@+id/spKelas"
-                            android:paddingHorizontal="8dp"
-                            android:layout_width="match_parent"
-                            android:layout_height="48dp"
-                            android:layout_marginTop="10dp"
-                            android:background="@drawable/spinner_background"
-                            tools:ignore="SpeakableTextPresentCheck" />
-
-<!--                        <ImageView-->
-<!--                            android:layout_width="wrap_content"-->
-<!--                            android:layout_height="wrap_content"-->
-<!--                            android:layout_below="@+id/tvKelas"-->
-<!--                            android:layout_alignParentEnd="true"-->
-<!--                            android:layout_centerVertical="true"-->
-<!--                            android:layout_gravity="center"-->
-<!--                            android:layout_marginTop="20dp"-->
-<!--                            android:src="@drawable/ic_spinner" />-->
 
                     </LinearLayout>
 
@@ -173,23 +136,35 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Mulai tanggal"
+                                android:text="Tanggal Mulai"
                                 android:textColor="@color/black"
                                 android:textSize="14sp" />
 
-                            <EditText
-                                android:id="@+id/txt_tgl"
+                            <LinearLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="50dp"
-                                android:paddingHorizontal="8dp"
-                                android:backgroundTint="#FF72B9FD"
-                                android:hint="Masukan tanggal"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:orientation="horizontal"
                                 android:layout_marginTop="10dp"
-                                android:imeOptions="actionNext"
-                                android:maxLines="1"
-                                android:background="@drawable/spinner_background"
-                                android:textColor="@color/black"
-                                android:textSize="16sp" />
+                                android:gravity="center">
+
+                                <EditText
+                                    android:id="@+id/txt_since"
+                                    android:layout_width="0dp"
+                                    android:layout_height="50dp"
+                                    android:layout_weight="1"
+                                    android:background="@drawable/spinner_background"
+                                    android:backgroundTint="#FF72B9FD"
+                                    android:hint="Tanggal Mulai"
+                                    android:inputType="date"
+                                    android:focusable="false"
+                                    android:maxLines="1"
+                                    android:paddingHorizontal="8dp"
+                                    android:textColor="@color/black"
+                                    android:textSize="16sp"
+                                    android:autofillHints="" />
+
+                            </LinearLayout>
 
                         </LinearLayout>
 
@@ -212,16 +187,17 @@
                             android:textSize="14sp" />
 
                         <EditText
-                            android:id="@+id/txt_end"
+                            android:id="@+id/txt_until"
                             android:layout_width="match_parent"
                             android:layout_height="50dp"
+                            android:layout_marginTop="10dp"
+                            android:background="@drawable/spinner_background"
                             android:backgroundTint="#FF72B9FD"
                             android:hint="Selesai Tanggal"
+                            android:imeOptions="actionNext"
+                            android:focusable="false"
                             android:maxLines="1"
                             android:paddingHorizontal="8dp"
-                            android:background="@drawable/spinner_background"
-                            android:imeOptions="actionNext"
-                            android:layout_marginTop="10dp"
                             android:textColor="@color/black"
                             android:textSize="16sp" />
 

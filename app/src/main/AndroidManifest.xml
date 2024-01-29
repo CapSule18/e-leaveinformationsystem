@@ -40,14 +40,14 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".RekapActivity"
+            android:name=".izin.ui.RekapActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".FormAjuanActivity"
+            android:name=".izin.ui.FormAjuanActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

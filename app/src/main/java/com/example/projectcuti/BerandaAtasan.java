@@ -6,6 +6,9 @@ import androidx.cardview.widget.CardView;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.example.projectcuti.izin.ui.FormAjuanActivity;
+import com.example.projectcuti.izin.ui.RekapActivity;
+
 public class BerandaAtasan extends AppCompatActivity {
     CardView cuti, izin, sakit, rekap, about, respon;
 

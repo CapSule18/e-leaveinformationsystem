@@ -1,6 +1,13 @@
 package com.example.projectcuti.login.data;
 
+import static android.content.Context.MODE_PRIVATE;
+
+import android.content.Context;
+import android.content.SharedPreferences;
+
 import com.example.projectcuti.login.data.model.LoggedInUser;
+import com.example.projectcuti.support.Result;
+import com.google.gson.Gson;
 
 /**
  * Class that requests authentication and user information from the remote data source and
@@ -37,17 +44,26 @@ public class LoginRepository {
         dataSource.logout();
     }
 
-    private void setLoggedInUser(LoggedInUser user) {
+    private void setLoggedInUser(LoggedInUser user, Context context) {
         this.user = user;
         // If user credentials will be cached in local storage, it is recommended it be encrypted
         // @see https://developer.android.com/training/articles/keystore
+
+        SharedPreferences userSharedPreferences = context.getSharedPreferences("user", MODE_PRIVATE);
+        SharedPreferences.Editor tokenEditor = userSharedPreferences.edit();
+
+        Gson gson = new Gson();
+        String json = gson.toJson(user);
+
+        tokenEditor.putString("user", json);
+        tokenEditor.apply();
     }
 
-    public Result<LoggedInUser> login(String username, String password) {
+    public Result<LoggedInUser> login(String username, String password, Context context) {
         // handle login
-        Result<LoggedInUser> result = dataSource.login(username, password);
+        Result<LoggedInUser> result = dataSource.login(username, password, context);
         if (result instanceof Result.Success) {
-            setLoggedInUser(((Result.Success<LoggedInUser>) result).getData());
+            setLoggedInUser(((Result.Success<LoggedInUser>) result).getData(), context);
         }
         return result;
     }

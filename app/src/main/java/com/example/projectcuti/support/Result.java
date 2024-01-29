@@ -1,4 +1,4 @@
-package com.example.projectcuti.login.data;
+package com.example.projectcuti.support;
 
 /**
  * A generic class that holds a result success w/ data or an error exception.

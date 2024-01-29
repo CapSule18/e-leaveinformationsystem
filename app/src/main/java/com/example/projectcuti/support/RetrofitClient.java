@@ -1,6 +1,7 @@
 package com.example.projectcuti.support;
 
 import com.example.projectcuti.interfaces.ApiInterface;
+import com.example.projectcuti.interfaces.IzinInterface;
 import com.example.projectcuti.interfaces.LoginInterface;
 
 import retrofit2.Retrofit;
@@ -15,12 +16,14 @@ public class RetrofitClient {
             .build();
 
     public static ApiInterface getApiInterface() {
-
         return retrofit.create(ApiInterface.class);
     }
 
     public static LoginInterface getLoginInterface() {
-
         return retrofit.create(LoginInterface.class);
+    }
+
+    public static IzinInterface getIzinInterface() {
+        return retrofit.create(IzinInterface.class);
     }
 }

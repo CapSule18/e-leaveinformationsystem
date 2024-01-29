@@ -11,6 +11,10 @@ public class BearerToken {
         return token;
     }
 
+    public String getAuthorizationHeader() {
+        return "Bearer " + token;
+    }
+
     public void setToken(String token) {
         this.token = token;
     }
